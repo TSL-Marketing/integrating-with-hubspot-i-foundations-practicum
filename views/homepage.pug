@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title= title
+    link(rel="stylesheet", href="/public/css/style.css")
+  body
+    main.container
+      h1 Pets (Custom Object)
+
+      a.button(href="/update-cobj") Add to this table
+
+      if !records || records.length === 0
+        p No pets found yet.
+      else
+        table
+          thead
+            tr
+              th Pet Name
+              th Pet Type
+              th Pet Color
+              th Record ID
+          tbody
+            each record in records
+              tr
+                td= record.properties[props.petName] || ""
+                td= record.properties[props.petType] || ""
+                td= record.properties[props.petColor] || ""
+                td= record.id
