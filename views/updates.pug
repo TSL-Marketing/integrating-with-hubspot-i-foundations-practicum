@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title= title
+    link(rel="stylesheet", href="/public/css/style.css")
+  body
+    main.container
+      a(href="/") Return to the homepage
+
+      h1 Add a Pet
+
+      form(method="POST", action="/update-cobj")
+        .field
+          label(for=props.petName) Pet Name
+          input(type="text", name=props.petName, id=props.petName, placeholder="e.g. Max", required=true)
+
+        .field
+          label(for=props.petType) Pet Type
+          input(type="text", name=props.petType, id=props.petType, placeholder="e.g. Dog")
+
+        .field
+          label(for=props.petColor) Pet Color
+          select(name=props.petColor, id=props.petColor, required=true)
+            option(value="") Select a color...
+            each c in colors
+              option(value=c.value)= c.label
+
+        button(type="submit") Create record
