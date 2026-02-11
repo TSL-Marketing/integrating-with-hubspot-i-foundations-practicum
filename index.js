@@ -32,7 +32,6 @@ const PET_COLOR_OPTIONS = [
   { value: "Fawn", label: "Fawn" },
 ];
 
-// ---------- Axios Client ----------
 const hubspot = axios.create({
   baseURL: HUBSPOT_BASE,
   headers: {
